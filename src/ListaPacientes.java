@@ -38,8 +38,13 @@ public class ListaPacientes {
         throw  new Exception();
     }
     public void showPacientes(){
+        if(lp.isEmpty()){
+            System.out.println("[*] No existen pacientes.");
+            return;
+        }
+
         for (Paciente p: lp){
-            System.out.println("[+] Paciente -> " + p.toString());
+            System.out.println("[*] Paciente -> " + p.toString());
         }
     }
 }

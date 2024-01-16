@@ -20,7 +20,7 @@ public class Medico {
      */
     public Medico() {
         Scanner leer = new Scanner(System.in);
-        System.out.println("* Creacion medio *");
+        System.out.println("[*] Creacion medio [*]");
 
         System.out.print("Introduzca el DNI del medico: ");
         this.DNI = leer.nextLine();
@@ -107,7 +107,7 @@ public class Medico {
 
     public Medico addMedico() {
         Scanner leer = new Scanner(System.in);
-        System.out.println("* Creacion medio *");
+        System.out.println("[*] Creacion medio [*]");
 
         System.out.print("Introduzca el DNI del medico: ");
         String dni = leer.nextLine();

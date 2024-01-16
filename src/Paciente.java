@@ -19,7 +19,7 @@ public class Paciente {
      */
     public Paciente() {
         Scanner leer = new Scanner(System.in);
-        System.out.println("* Creacion Paciente *");
+        System.out.println("[*] Creacion Paciente [*]");
 
         System.out.print("Introduzca el DNI del paciente: ");
         this.DNI = leer.nextLine();

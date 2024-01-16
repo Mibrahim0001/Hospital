@@ -3,30 +3,47 @@ import Interfaz.Menu;
 import java.util.Scanner;
 
 public class main {
-    static ListaMedicos listMedic = new ListaMedicos();
-    static ListaPacientes listPaci = new ListaPacientes();
-
+    static private final ListaMedicos listMedic = new ListaMedicos();
+    static private final ListaPacientes listPaci = new ListaPacientes();
+    static private final Scanner leer = new Scanner(System.in);
     public static void main(String[] args) {
-
-
-        while (true) {
+        Medico m2 = new Medico("12232537L","Jose","Carlos", "dermatologia");
+        listMedic.addMedico(m2);
+        loop : while (true) {
             int eleccion = Menu.mostrar();
             switch (eleccion) {
                 case 1:
                     Paciente p = new Paciente();
                     listPaci.addPaciente(p);
+                    continuar();
                     break;
                 case 2:
                     Medico m = new Medico();
                     listMedic.addMedico(m);
+                    continuar();
                     break;
                 case 3:
                     modificarPacientes();
+                    continuar();
+                    break;
+                case 4:
+                    modificarMedico();
+                    continuar();
                     break;
                 case 5:
                     listPaci.showPacientes();
-                default:
+                    continuar();
                     break;
+                case 6:
+                    listMedic.showMedicos();
+                    continuar();
+                    break;
+                case 7:
+                    listMedic.eliminarMedico();
+                    continuar();
+                    break;
+                default:
+                    break loop;
             }
         }
 
@@ -52,8 +69,13 @@ public class main {
 
     }
 
+    public static void continuar(){
+        System.out.print("[*] Presione enter para ir al menu...");
+       leer.nextLine();
+    }
+
     public static void modificarPacientes(){
-        Scanner leer = new Scanner(System.in);
+
         System.out.print("Escriba el dni del paciente: ");
         String dni = leer.nextLine();
         if(!listPaci.pacienteExiste(dni)){
@@ -72,5 +94,26 @@ public class main {
         listPaci.remplacePaciente(dni, p);
 
         listPaci.showPacientes();
+    }
+    public static void modificarMedico(){
+        Scanner leer = new Scanner(System.in);
+        System.out.print("Escriba el dni del medico: ");
+        String dni = leer.nextLine();
+        if(!listMedic.medicoExiste(dni)){
+            System.out.println("[-] No existe ningun medico con ese DNI.");
+            return;
+        }
+
+        System.out.println("Informacion actual:");
+        try {
+            System.out.println(listMedic.getMedicoByDni(dni));
+        }catch (Exception e){
+            System.out.println("[-] No existe ningun medico con ese DNI.");
+            return;
+        }
+        Medico m = new Medico();
+        listMedic.remplaceMedico(dni, m);
+
+        listMedic.showMedicos();
     }
 }

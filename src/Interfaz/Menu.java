@@ -24,6 +24,7 @@ public class Menu {
         System.out.println("[5] Listar pacientes            |");
         System.out.println("[6] Listar medicos              |");
         System.out.println("[7] Dar de baja un médico       |");
+        System.out.println("[8] Atender paciente            |");
         System.out.println("                                |");
         System.out.println("*-------------------------------*");
 
